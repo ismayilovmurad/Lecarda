@@ -59,10 +59,14 @@ struct CardView: View {
                 Text(flashCard.card.word!)
                     .font(.largeTitle)
                     .foregroundColor(.white)
+                Text(flashCard.card.pronunciation!)
+                    .font(.title2)
+                    .foregroundColor(.white)
                 if revealed {
                     Text(flashCard.card.translation!)
                         .font(.caption)
                         .foregroundColor(.white)
+                        .padding(2)
                 }
                 Spacer()
             }
@@ -84,8 +88,6 @@ struct CardView: View {
                 })
             })
     }
-    
-    
 }
 
 struct CardView_Previews: PreviewProvider {
@@ -94,7 +96,7 @@ struct CardView_Previews: PreviewProvider {
     static var previews: some View {
         let card = FlashCard(
             card: Word(
-                word: "Hola", translation: "Hola", pronunciation: "Hello"
+                word: "Hello", translation: "Merhaba", pronunciation: "[ helo ]"
             )
         )
         return CardView(card, cardColor: $cardColor)

@@ -24,6 +24,7 @@
 		62AF960429DBF468007D189E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62AF960329DBF468007D189E /* Preview Assets.xcassets */; };
 		62AF960629DBF468007D189E /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AF960529DBF468007D189E /* PersistenceController.swift */; };
 		62AF960929DBF468007D189E /* Lecarda.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 62AF960729DBF468007D189E /* Lecarda.xcdatamodeld */; };
+		62C0CCFA29E02CED00DE4A20 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C0CCF929E02CED00DE4A20 /* Question.swift */; };
 		62F2460B29DE7651009184CF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62F2460A29DE7651009184CF /* GoogleService-Info.plist */; };
 		62F2460E29DE770B009184CF /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 62F2460D29DE770B009184CF /* FirebaseAnalytics */; };
 		62F2461029DE770B009184CF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 62F2460F29DE770B009184CF /* FirebaseFirestore */; };
@@ -52,6 +53,7 @@
 		62AF960529DBF468007D189E /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		62AF960829DBF468007D189E /* Lecarda.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Lecarda.xcdatamodel; sourceTree = "<group>"; };
 		62AF960A29DBF468007D189E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62C0CCF929E02CED00DE4A20 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		62F2460A29DE7651009184CF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		62F2461329DE7E12009184CF /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		62F2461729DE9947009184CF /* InitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitView.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 		622EDBEB29DC085D000B03A5 /* test */ = {
 			isa = PBXGroup;
 			children = (
+				62C0CCF929E02CED00DE4A20 /* Question.swift */,
 				622EDBE429DC01B6000B03A5 /* TestView.swift */,
 			);
 			path = test;
@@ -237,6 +240,7 @@
 				622EDBE729DC01D0000B03A5 /* SettingsView.swift in Sources */,
 				62F2461829DE9947009184CF /* InitView.swift in Sources */,
 				622EDC1329DC40A7000B03A5 /* Color+Extension.swift in Sources */,
+				62C0CCFA29E02CED00DE4A20 /* Question.swift in Sources */,
 				628063DB29DF21F500500B8A /* View+Extension.swift in Sources */,
 				62F2461429DE7E12009184CF /* Word.swift in Sources */,
 				622EDBE529DC01B6000B03A5 /* TestView.swift in Sources */,
