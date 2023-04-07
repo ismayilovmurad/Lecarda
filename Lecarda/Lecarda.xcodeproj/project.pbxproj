@@ -1,0 +1,498 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		622EDBE029DBFEFD000B03A5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622EDBDF29DBFEFD000B03A5 /* MainView.swift */; };
+		622EDBE329DC010F000B03A5 /* LearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622EDBE229DC010F000B03A5 /* LearnView.swift */; };
+		622EDBE529DC01B6000B03A5 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622EDBE429DC01B6000B03A5 /* TestView.swift */; };
+		622EDBE729DC01D0000B03A5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622EDBE629DC01D0000B03A5 /* SettingsView.swift */; };
+		622EDC0729DC3DC7000B03A5 /* DeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622EDC0629DC3DC7000B03A5 /* DeckView.swift */; };
+		622EDC0929DC3DF6000B03A5 /* FlashDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622EDC0829DC3DF6000B03A5 /* FlashDeck.swift */; };
+		622EDC0B29DC3E61000B03A5 /* FlashCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622EDC0A29DC3E61000B03A5 /* FlashCard.swift */; };
+		622EDC0D29DC4000000B03A5 /* WordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622EDC0C29DC3FFF000B03A5 /* WordViewModel.swift */; };
+		622EDC0F29DC4024000B03A5 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622EDC0E29DC4024000B03A5 /* CardView.swift */; };
+		622EDC1129DC407A000B03A5 /* LearningStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622EDC1029DC407A000B03A5 /* LearningStore.swift */; };
+		622EDC1329DC40A7000B03A5 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622EDC1229DC40A7000B03A5 /* Color+Extension.swift */; };
+		628063DB29DF21F500500B8A /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628063DA29DF21F500500B8A /* View+Extension.swift */; };
+		62AF95FD29DBF465007D189E /* LecardaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AF95FC29DBF465007D189E /* LecardaApp.swift */; };
+		62AF960129DBF468007D189E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62AF960029DBF468007D189E /* Assets.xcassets */; };
+		62AF960429DBF468007D189E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62AF960329DBF468007D189E /* Preview Assets.xcassets */; };
+		62AF960629DBF468007D189E /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AF960529DBF468007D189E /* PersistenceController.swift */; };
+		62AF960929DBF468007D189E /* Lecarda.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 62AF960729DBF468007D189E /* Lecarda.xcdatamodeld */; };
+		62F2460B29DE7651009184CF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62F2460A29DE7651009184CF /* GoogleService-Info.plist */; };
+		62F2460E29DE770B009184CF /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 62F2460D29DE770B009184CF /* FirebaseAnalytics */; };
+		62F2461029DE770B009184CF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 62F2460F29DE770B009184CF /* FirebaseFirestore */; };
+		62F2461229DE770B009184CF /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 62F2461129DE770B009184CF /* FirebaseFirestoreSwift */; };
+		62F2461429DE7E12009184CF /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F2461329DE7E12009184CF /* Word.swift */; };
+		62F2461829DE9947009184CF /* InitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F2461729DE9947009184CF /* InitView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		622EDBDF29DBFEFD000B03A5 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		622EDBE229DC010F000B03A5 /* LearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnView.swift; sourceTree = "<group>"; };
+		622EDBE429DC01B6000B03A5 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		622EDBE629DC01D0000B03A5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		622EDC0629DC3DC7000B03A5 /* DeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckView.swift; sourceTree = "<group>"; };
+		622EDC0829DC3DF6000B03A5 /* FlashDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashDeck.swift; sourceTree = "<group>"; };
+		622EDC0A29DC3E61000B03A5 /* FlashCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCard.swift; sourceTree = "<group>"; };
+		622EDC0C29DC3FFF000B03A5 /* WordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordViewModel.swift; sourceTree = "<group>"; };
+		622EDC0E29DC4024000B03A5 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		622EDC1029DC407A000B03A5 /* LearningStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningStore.swift; sourceTree = "<group>"; };
+		622EDC1229DC40A7000B03A5 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		628063DA29DF21F500500B8A /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		62AF95F929DBF465007D189E /* Lecarda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lecarda.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		62AF95FC29DBF465007D189E /* LecardaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecardaApp.swift; sourceTree = "<group>"; };
+		62AF960029DBF468007D189E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		62AF960329DBF468007D189E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		62AF960529DBF468007D189E /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		62AF960829DBF468007D189E /* Lecarda.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Lecarda.xcdatamodel; sourceTree = "<group>"; };
+		62AF960A29DBF468007D189E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62F2460A29DE7651009184CF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		62F2461329DE7E12009184CF /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		62F2461729DE9947009184CF /* InitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		62AF95F629DBF465007D189E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62F2460E29DE770B009184CF /* FirebaseAnalytics in Frameworks */,
+				62F2461029DE770B009184CF /* FirebaseFirestore in Frameworks */,
+				62F2461229DE770B009184CF /* FirebaseFirestoreSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		622EDBE829DC07B1000B03A5 /* learn */ = {
+			isa = PBXGroup;
+			children = (
+				622EDBE229DC010F000B03A5 /* LearnView.swift */,
+				622EDC0629DC3DC7000B03A5 /* DeckView.swift */,
+				622EDC0829DC3DF6000B03A5 /* FlashDeck.swift */,
+				622EDC0A29DC3E61000B03A5 /* FlashCard.swift */,
+				622EDC0E29DC4024000B03A5 /* CardView.swift */,
+				622EDC1029DC407A000B03A5 /* LearningStore.swift */,
+			);
+			path = learn;
+			sourceTree = "<group>";
+		};
+		622EDBEB29DC085D000B03A5 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				622EDBE429DC01B6000B03A5 /* TestView.swift */,
+			);
+			path = test;
+			sourceTree = "<group>";
+		};
+		622EDC1429DC4DFB000B03A5 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				622EDC1229DC40A7000B03A5 /* Color+Extension.swift */,
+				628063DA29DF21F500500B8A /* View+Extension.swift */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
+		62AF95F029DBF465007D189E = {
+			isa = PBXGroup;
+			children = (
+				62AF95FB29DBF465007D189E /* Lecarda */,
+				62AF95FA29DBF465007D189E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		62AF95FA29DBF465007D189E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				62AF95F929DBF465007D189E /* Lecarda.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		62AF95FB29DBF465007D189E /* Lecarda */ = {
+			isa = PBXGroup;
+			children = (
+				62F2460A29DE7651009184CF /* GoogleService-Info.plist */,
+				62AF960A29DBF468007D189E /* Info.plist */,
+				62F2461729DE9947009184CF /* InitView.swift */,
+				62AF95FC29DBF465007D189E /* LecardaApp.swift */,
+				622EDBDF29DBFEFD000B03A5 /* MainView.swift */,
+				62AF960529DBF468007D189E /* PersistenceController.swift */,
+				62F2461329DE7E12009184CF /* Word.swift */,
+				622EDC0C29DC3FFF000B03A5 /* WordViewModel.swift */,
+				62AF960029DBF468007D189E /* Assets.xcassets */,
+				622EDC1429DC4DFB000B03A5 /* extension */,
+				622EDBE829DC07B1000B03A5 /* learn */,
+				62AF960729DBF468007D189E /* Lecarda.xcdatamodeld */,
+				62AF960229DBF468007D189E /* Preview Content */,
+				62BFB23C29DDADA100840000 /* settings */,
+				622EDBEB29DC085D000B03A5 /* test */,
+			);
+			path = Lecarda;
+			sourceTree = "<group>";
+		};
+		62AF960229DBF468007D189E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				62AF960329DBF468007D189E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		62BFB23C29DDADA100840000 /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				622EDBE629DC01D0000B03A5 /* SettingsView.swift */,
+			);
+			path = settings;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		62AF95F829DBF465007D189E /* Lecarda */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 62AF960D29DBF468007D189E /* Build configuration list for PBXNativeTarget "Lecarda" */;
+			buildPhases = (
+				62AF95F529DBF465007D189E /* Sources */,
+				62AF95F629DBF465007D189E /* Frameworks */,
+				62AF95F729DBF465007D189E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Lecarda;
+			packageProductDependencies = (
+				62F2460D29DE770B009184CF /* FirebaseAnalytics */,
+				62F2460F29DE770B009184CF /* FirebaseFirestore */,
+				62F2461129DE770B009184CF /* FirebaseFirestoreSwift */,
+			);
+			productName = Lecarda;
+			productReference = 62AF95F929DBF465007D189E /* Lecarda.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		62AF95F129DBF465007D189E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					62AF95F829DBF465007D189E = {
+						CreatedOnToolsVersion = 14.3;
+					};
+				};
+			};
+			buildConfigurationList = 62AF95F429DBF465007D189E /* Build configuration list for PBXProject "Lecarda" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 62AF95F029DBF465007D189E;
+			packageReferences = (
+				62F2460C29DE770B009184CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			productRefGroup = 62AF95FA29DBF465007D189E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				62AF95F829DBF465007D189E /* Lecarda */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		62AF95F729DBF465007D189E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62AF960429DBF468007D189E /* Preview Assets.xcassets in Resources */,
+				62AF960129DBF468007D189E /* Assets.xcassets in Resources */,
+				62F2460B29DE7651009184CF /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		62AF95F529DBF465007D189E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				622EDBE729DC01D0000B03A5 /* SettingsView.swift in Sources */,
+				62F2461829DE9947009184CF /* InitView.swift in Sources */,
+				622EDC1329DC40A7000B03A5 /* Color+Extension.swift in Sources */,
+				628063DB29DF21F500500B8A /* View+Extension.swift in Sources */,
+				62F2461429DE7E12009184CF /* Word.swift in Sources */,
+				622EDBE529DC01B6000B03A5 /* TestView.swift in Sources */,
+				622EDC0929DC3DF6000B03A5 /* FlashDeck.swift in Sources */,
+				62AF960929DBF468007D189E /* Lecarda.xcdatamodeld in Sources */,
+				622EDC1129DC407A000B03A5 /* LearningStore.swift in Sources */,
+				622EDC0B29DC3E61000B03A5 /* FlashCard.swift in Sources */,
+				622EDC0729DC3DC7000B03A5 /* DeckView.swift in Sources */,
+				62AF960629DBF468007D189E /* PersistenceController.swift in Sources */,
+				622EDBE029DBFEFD000B03A5 /* MainView.swift in Sources */,
+				622EDBE329DC010F000B03A5 /* LearnView.swift in Sources */,
+				62AF95FD29DBF465007D189E /* LecardaApp.swift in Sources */,
+				622EDC0F29DC4024000B03A5 /* CardView.swift in Sources */,
+				622EDC0D29DC4000000B03A5 /* WordViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		62AF960B29DBF468007D189E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		62AF960C29DBF468007D189E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		62AF960E29DBF468007D189E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Lecarda/Preview Content\"";
+				DEVELOPMENT_TEAM = JNL77675JJ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.muradismayilov.Lecarda;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		62AF960F29DBF468007D189E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Lecarda/Preview Content\"";
+				DEVELOPMENT_TEAM = JNL77675JJ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.muradismayilov.Lecarda;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		62AF95F429DBF465007D189E /* Build configuration list for PBXProject "Lecarda" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				62AF960B29DBF468007D189E /* Debug */,
+				62AF960C29DBF468007D189E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		62AF960D29DBF468007D189E /* Build configuration list for PBXNativeTarget "Lecarda" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				62AF960E29DBF468007D189E /* Debug */,
+				62AF960F29DBF468007D189E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		62F2460C29DE770B009184CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		62F2460D29DE770B009184CF /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62F2460C29DE770B009184CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		62F2460F29DE770B009184CF /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62F2460C29DE770B009184CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		62F2461129DE770B009184CF /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62F2460C29DE770B009184CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		62AF960729DBF468007D189E /* Lecarda.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				62AF960829DBF468007D189E /* Lecarda.xcdatamodel */,
+			);
+			currentVersion = 62AF960829DBF468007D189E /* Lecarda.xcdatamodel */;
+			path = Lecarda.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 62AF95F129DBF465007D189E /* Project object */;
+}
