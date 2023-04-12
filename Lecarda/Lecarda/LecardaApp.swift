@@ -11,7 +11,11 @@ import FirebaseCore
 @main
 struct LecardaApp: App {
     
+    /// instantiate the PersistenceController
     let persistenceController = PersistenceController.shared
+    
+    /// instantiate the NetworkMonitor
+    @StateObject var networkMonitor = NetworkMonitor()
     
     init() {
         FirebaseApp.configure()
@@ -19,7 +23,12 @@ struct LecardaApp: App {
     
     var body: some Scene {
         WindowGroup {
-            InitView().environment(\.managedObjectContext, persistenceController.container.viewContext)
+            InitView()
+            /// inject the PersistenceController into SwiftUI environment
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            /// inject the NetworkMonitor into SwiftUI environment
+                .environmentObject(networkMonitor)
+                .preferredColorScheme(.light)
         }
     }
 }

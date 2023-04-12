@@ -12,10 +12,15 @@ struct LearnView: View {
     @StateObject var learningStore = LearningStore(deck: WordViewModel.words)
     
     var body: some View {
-        VStack {
-            Spacer()
-            DeckView(deck: learningStore.deck)
-            Spacer()
+        ZStack {
+            /// change the background color
+            Color(red: 0.914, green: 0.973, blue: 0.976).ignoresSafeArea()
+            
+            VStack {
+                Spacer()
+                DeckView(deck: learningStore.deck)
+                Spacer()
+            }
         }
     }
 }

@@ -8,80 +8,88 @@
 import SwiftUI
 
 struct TestView: View {
+    /// current question
     @State var question = Question(question: "Question", answer: "Answer", wrongAnswer: "Wrong Answer", wrongAnswer2: "Wrong Answer 2")
     
+    /// answers
+    @State var answers = ["Answer", "WrongAnswer", "WrongAnswer2"]
+    
+    /// current question index
     @State var currentQuestion = -1
     
+    /// questions
     @State var randomQuestions = [Int]()
     
     @State var isTestHidden = true
-    
-    @State var answers = ["Answer", "WrongAnswer", "WrongAnswer2"]
-    
     @State var isAlertPresented = false
-    
     @State var alertText = ""
     
+    @State private var correctAnswers = 0
+    
+    @State private var alertButtonText = "Devam et"
+    
     var body: some View {
-        GeometryReader { geometry in
-            ZStack(alignment: .center){
-                Button("START", action: {
-                    generateRandomQuestions()
-                    createQuestion()
-                    isTestHidden = false
-                })
-                .isHidden(!isTestHidden)
+        ZStack {
+            /// change the background color
+            Color(red: 0.914, green: 0.973, blue: 0.976).ignoresSafeArea()
+            
+            Button("Teste başla", action: {
+                generateRandomQuestions()
+                createQuestion()
+                isTestHidden = false
+            })
+            .font(Font.title.weight(.bold))
+            .foregroundColor(Color(red: 0.325, green: 0.498, blue: 0.906))
+            .isHidden(!isTestHidden)
+            
+            VStack(spacing: 34) {
+                Text(question.question)
+                    .font(Font.largeTitle.weight(.bold))
+                    .foregroundColor(Color(red: 0.325, green: 0.498, blue: 0.906))
+                    .padding()
                 
-                VStack(spacing: 40) {
-                    Text(question.question)
-                        .padding()
-                        .font(.largeTitle)
-                    
-                    Button(answers[0], action: {
-                        checkAnswer(answer: answers[0])
-                    })
-                    .buttonStyle(BlueButton())
-                    .alert(alertText, isPresented: $isAlertPresented) {
-                        Button("Okay", role: .cancel) {
-                            createQuestion()
-                        }
+                Button(answers[0], action: {
+                    checkAnswer(answer: answers[0])
+                })
+                .buttonStyle(AnswerButtonStyle())
+                .alert(alertText, isPresented: $isAlertPresented) {
+                    Button(alertButtonText, role: .cancel) {
+                        checkFinish()
                     }
-                    
-                    Button(answers[1], action: {
-                        checkAnswer(answer: answers[1])
-                    })
-                    .buttonStyle(BlueButton())
-                    .alert(alertText, isPresented: $isAlertPresented) {
-                        Button("Okay", role: .cancel) {
-                            createQuestion()
-                        }
+                }
+                
+                Button(answers[1], action: {
+                    checkAnswer(answer: answers[1])
+                })
+                .buttonStyle(AnswerButtonStyle())
+                .alert(alertText, isPresented: $isAlertPresented) {
+                    Button(alertButtonText, role: .cancel) {
+                        checkFinish()
                     }
-                    
-                    Button(answers[2], action: {
-                        checkAnswer(answer: answers[2])
-                    })
-                    .buttonStyle(BlueButton())
-                    .alert(alertText, isPresented: $isAlertPresented) {
-                        Button("Okay", role: .cancel) {
-                            createQuestion()
-                        }
+                }
+                
+                Button(answers[2], action: {
+                    checkAnswer(answer: answers[2])
+                })
+                .buttonStyle(AnswerButtonStyle())
+                .alert(alertText, isPresented: $isAlertPresented) {
+                    Button(alertButtonText, role: .cancel) {
+                        checkFinish()
                     }
-                    
-                }.isHidden(isTestHidden)
+                }
             }
-            .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.height)
+            .isHidden(isTestHidden)
         }
-        
     }
     
-    func checkAnswer(answer: String) {
-        if answer == question.answer {
-            alertText = "Fantastic"
-        } else {
-            alertText = "The correct answer is \"\(question.answer)\""
+    func generateRandomQuestions() {
+        while randomQuestions.count < 10 {
+            let randomNumber = Int.random(in: 0..<WordViewModel.words.count)
+            
+            if !randomQuestions.contains(randomNumber) {
+                randomQuestions.append(randomNumber)
+            }
         }
-        
-        isAlertPresented = true
     }
     
     func createQuestion() {
@@ -107,24 +115,33 @@ struct TestView: View {
         answers.shuffle()
     }
     
-    func generateRandomQuestions() {
-        while randomQuestions.count < 8 {
-            let randomNumber = Int.random(in: 0..<WordViewModel.words.count)
-            
-            if !randomQuestions.contains(randomNumber) {
-                randomQuestions.append(randomNumber)
-            }
+    func checkFinish() {
+        if alertButtonText == "Tamam" {
+            currentQuestion = -1
+            alertButtonText = "Devam et"
+            alertText = ""
+            isTestHidden = true
+            randomQuestions.removeAll()
+            correctAnswers = 0
+        } else {
+            createQuestion()
         }
     }
-}
-
-struct BlueButton: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .padding()
-            .background(Color(rgba: 0x2596be))
-            .foregroundColor(.white)
-            .clipShape(Capsule())
+    
+    func checkAnswer(answer: String) {
+        if answer == question.answer {
+            correctAnswers += 1
+            alertText = "Harika, doğru cevap!"
+        } else {
+            alertText = "Yanlış, doğru cevap \"\(question.answer)\"."
+        }
+        
+        if currentQuestion == 9 {
+            alertText += "\n\n Test bitti, sonuç 10/\(correctAnswers)"
+            alertButtonText = "Tamam"
+        }
+        
+        isAlertPresented = true
     }
 }
 

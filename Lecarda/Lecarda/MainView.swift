@@ -7,9 +7,7 @@
 
 import SwiftUI
 
-
 struct MainView: View {
-    var vm = WordViewModel()
     
     var body: some View {
         TabView {
@@ -32,8 +30,16 @@ struct MainView: View {
                 Text("Settings")
             })
         }
-        .accentColor(.orange)
-        .navigationBarTitle("")
+        .onAppear{
+            WordViewModel.words.shuffle()
+            
+            /// change the background color of the TabBar
+            UITabBar.appearance().backgroundColor = UIColor(Color(red: 0.914, green: 0.973, blue: 0.976))
+            
+            /// change the color of the unselected tab
+            UITabBar.appearance().unselectedItemTintColor = UIColor(Color(red: 0.537, green: 0.769, blue: 0.882))
+        }
+        .accentColor(Color(red: 0.325, green: 0.498, blue: 0.906))
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
     }

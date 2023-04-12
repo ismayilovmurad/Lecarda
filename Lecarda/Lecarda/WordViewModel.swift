@@ -8,5 +8,6 @@
 import Foundation
 
 class WordViewModel: ObservableObject {
+    static var allWords = [Word]()
     static var words = [Word]()
 }

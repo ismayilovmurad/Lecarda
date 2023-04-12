@@ -7,9 +7,9 @@
 
 import Foundation
 
-// MARK: The ObservableObject conformance allows instances of this class to be used inside views, so that when important changes happen the view will reload.
+/// the ObservableObject conformance allows instances of this class to be used inside views, so that when important changes happen the view will reload.
 class FlashDeck: ObservableObject {
-    // MARK: The @Published property wrapper tells SwiftUI that changes to score should trigger view reloads.
+    // the @Published property wrapper tells SwiftUI that changes to score should trigger view reloads.
     @Published var cards: [FlashCard]
     
     init(from words: [Word]) {

@@ -10,7 +10,6 @@ import SwiftUI
 struct CardView: View {
     var flashCard: FlashCard
     
-    @Binding var cardColor: Color
     @State var revealed = false
     @State var offset: CGSize = .zero
     
@@ -18,12 +17,11 @@ struct CardView: View {
     
     let dragged: CardDrag
     
-    // MARK: This attribute enables the state of a gesture to be stored and read during a gesture to influence the effects that gesture may have on the drawing of the view.
+    /// this attribute enables the state of a gesture to be stored and read during a gesture to influence the effects that gesture may have on the drawing of the view.
     @GestureState var isLongPressed = false
-    
-    init(_ card: FlashCard, cardColor: Binding<Color>, onDrag dragged: @escaping CardDrag = {_,_  in }) {
+        
+    init(_ card: FlashCard, onDrag dragged: @escaping CardDrag = {_,_  in }) {
         flashCard = card
-        _cardColor = cardColor
         self.dragged = dragged
     }
     
@@ -51,7 +49,7 @@ struct CardView: View {
         
         return ZStack {
             Rectangle()
-                .fill(cardColor)
+                .fill(Color(red: 0.325, green: 0.498, blue: 0.906))
                 .frame(width: 320, height: 210)
                 .cornerRadius(12)
             VStack {
@@ -71,7 +69,7 @@ struct CardView: View {
                 Spacer()
             }
         }
-        .shadow(radius: 8)
+        .shadow(radius: 1)
         .frame(width: 320, height: 210)
         .animation(.spring(), value: offset)
         .offset(offset)
@@ -91,14 +89,12 @@ struct CardView: View {
 }
 
 struct CardView_Previews: PreviewProvider {
-    @State static var cardColor = Color.red
-    
     static var previews: some View {
         let card = FlashCard(
             card: Word(
                 word: "Hello", translation: "Merhaba", pronunciation: "[ helo ]"
             )
         )
-        return CardView(card, cardColor: $cardColor)
+        return CardView(card)
     }
 }

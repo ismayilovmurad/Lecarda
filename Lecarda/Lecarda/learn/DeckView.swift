@@ -25,16 +25,17 @@ enum DiscardedDirection {
 
 struct DeckView: View {
     @ObservedObject var deck: FlashDeck
-    
-    @AppStorage("cardBackgroundColor")
-    var cardBackgroundColorInt: Int = 0xFF0000FF
-    
+        
     init(deck: FlashDeck) {
         self.deck = deck
     }
     
     var body: some View {
         ZStack {
+            Text("Bölüm sona erdi, lütfen daha sonra tekrar dene.")
+                .font(Font.title.weight(.bold))
+                .foregroundColor(Color(red: 0.325, green: 0.498, blue: 0.906))
+                .padding()
             ForEach(deck.cards.filter { $0.isActive }) { card in
                 getCardView(for: card)
             }
@@ -56,10 +57,7 @@ struct DeckView: View {
     }
     
     func createCardView(for card: FlashCard) -> CardView {
-        let view = CardView(card, cardColor: Binding(
-            get: { Color(rgba: cardBackgroundColorInt) },
-            set: { newValue in cardBackgroundColorInt = newValue.asRgba }
-        ), onDrag: { card, direction in
+        let view = CardView(card, onDrag: { card, direction in
             if direction == .left {
                 // TODO: left it is
             }

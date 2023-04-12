@@ -23,7 +23,6 @@ class LearningStore: ObservableObject {
         }
         
         self.card = card
-        deck.cards.removeLast()
         return self.card
     }
 }
