@@ -14,7 +14,7 @@ struct MainView: View {
             LearnView().tabItem({
                 VStack {
                     Image(systemName: "book.fill")
-                    Text("Cards")
+                    Text("Kartlar")
                 }
             })
             
@@ -27,7 +27,7 @@ struct MainView: View {
             
             SettingsView().tabItem({
                 Image(systemName: "gear")
-                Text("Settings")
+                Text("Ayarlar")
             })
         }
         .onAppear{

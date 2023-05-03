@@ -44,6 +44,8 @@ struct TestView: View {
             
             VStack(spacing: 34) {
                 Text(question.question)
+                    .lineLimit(2, reservesSpace: true)
+                    .multilineTextAlignment(.center)
                     .font(Font.largeTitle.weight(.bold))
                     .foregroundColor(Color(red: 0.325, green: 0.498, blue: 0.906))
                     .padding()
@@ -106,7 +108,7 @@ struct TestView: View {
             }
         }
         
-        question = Question(question: WordViewModel.words[randomQuestions[currentQuestion]].word!, answer: WordViewModel.words[randomQuestions[currentQuestion]].translation!, wrongAnswer: WordViewModel.words[randomAnswers[0]].translation!, wrongAnswer2: WordViewModel.words[randomAnswers[1]].translation!)
+        question = Question(question: WordViewModel.words[randomQuestions[currentQuestion]].word, answer: WordViewModel.words[randomQuestions[currentQuestion]].translation, wrongAnswer: WordViewModel.words[randomAnswers[0]].translation, wrongAnswer2: WordViewModel.words[randomAnswers[1]].translation)
         
         answers.removeAll()
         answers.append(question.answer)
@@ -131,13 +133,13 @@ struct TestView: View {
     func checkAnswer(answer: String) {
         if answer == question.answer {
             correctAnswers += 1
-            alertText = "Harika, doğru cevap!"
+            alertText = "Harika, doğru cevap! 🤩"
         } else {
-            alertText = "Yanlış, doğru cevap \"\(question.answer)\"."
+            alertText = "Yanlış, doğru cevap \"\(question.answer)\". 🫣"
         }
         
         if currentQuestion == 9 {
-            alertText += "\n\n Test bitti, sonuç 10/\(correctAnswers)"
+            alertText += "\n\n Test bitti, sonuç 10/\(correctAnswers) 🥳"
             alertButtonText = "Tamam"
         }
         

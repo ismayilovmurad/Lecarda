@@ -34,65 +34,80 @@ struct InitView: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
-                /// change the background color
-                Color(red: 0.914, green: 0.973, blue: 0.976).ignoresSafeArea()
-                
-                /// show the Progress while the Database or the Firebase is being loaded
-                ProgressView("Yükleniyor")
-                    .foregroundColor(Color(red: 0.325, green: 0.498, blue: 0.906))
-                    .tint(Color(red: 0.325, green: 0.498, blue: 0.906))
-                    .bold()
-                    .isHidden(isProgressHidden)
-                    .alert(errorMessage, isPresented: $isAlertPresented) {
-                        Button("Tamam", role: .cancel) {
-                            isTryAgainHidden = false
-                        }
-                    }
-                
-                /// vertical container for the Start and the Image
-                VStack {
-                    /// start
-                    VStack {
-                        Text("Let's get started")
-                            .font(Font.title2.weight(.bold))
-                            .foregroundColor(Color(red: 0.325, green: 0.498, blue: 0.906))
-                        
-                        if revealed {
-                            Text("Hadi başlayalım")
-                                .font(Font.title3.weight(.bold))
-                                .foregroundColor(Color(red: 0.325, green: 0.498, blue: 0.906))
-                                .padding(2)
-                        }
-                    }
-                    .gesture(TapGesture().onEnded({
-                        withAnimation(.easeIn, {
-                            revealed = !revealed
-                        })
-                    }))
+            VStack {
+                ZStack {
+                    /// change the background color
+                    Color(red: 0.914, green: 0.973, blue: 0.976).ignoresSafeArea()
                     
-                    /// image
-                    NavigationLink(destination: MainView()) {
-                        Image(systemName: "hand.tap.fill")
-                            .resizable()
-                            .frame(width: 44, height: 44)
-                            .padding(44)
-                            .foregroundColor(Color(red: 0.325, green: 0.498, blue: 0.906))
+                    /// show the Progress while the Database or the Firebase is being loaded
+                    ProgressView("Yükleniyor")
+                        .foregroundColor(Color(red: 0.325, green: 0.498, blue: 0.906))
+                        .tint(Color(red: 0.325, green: 0.498, blue: 0.906))
+                        .bold()
+                        .isHidden(isProgressHidden)
+                        .alert(errorMessage, isPresented: $isAlertPresented) {
+                            Button("Tamam", role: .cancel) {
+                                isTryAgainHidden = false
+                            }
+                        }
+                    
+                    /// vertical container for the Start and the Image
+                    VStack {
+                        /// start
+                        VStack {
+                            Text("Hadi başlayalım")
+                                .font(Font.title2.weight(.bold))
+                                .foregroundColor(Color(red: 0.325, green: 0.498, blue: 0.906))
+                            
+                            if revealed {
+                                Text("Let's get started")
+                                    .font(Font.title3.weight(.bold))
+                                    .foregroundColor(Color(red: 0.325, green: 0.498, blue: 0.906))
+                                    .padding(2)
+                            }
+                        }
+                        .gesture(TapGesture().onEnded({
+                            withAnimation(.easeIn, {
+                                revealed = !revealed
+                            })
+                        }))
+                        
+                        /// image
+                        NavigationLink(destination: MainView()) {
+                            Image(systemName: "hand.tap.fill")
+                                .resizable()
+                                .frame(width: 44, height: 44)
+                                .padding(44)
+                                .foregroundColor(Color(red: 0.325, green: 0.498, blue: 0.906))
+                        }
                     }
+                    .isHidden(isStartHidden)
+                    
+                    /// try again
+                    Button("Tekrar dene", action: {
+                        isTryAgainHidden = true
+                        errorMessage = "Bir hata oluştu"
+                        isProgressHidden = false
+                        fetchDatabase()
+                    })
+                    .font(Font.title3.weight(.bold))
+                    .foregroundColor(Color(red: 0.325, green: 0.498, blue: 0.906))
+                    .isHidden(isTryAgainHidden)
                 }
-                .isHidden(isStartHidden)
                 
-                /// try again
-                Button("Tekrar dene", action: {
-                    isTryAgainHidden = true
-                    errorMessage = "Bir hata oluştu"
-                    isProgressHidden = false
-                    fetchDatabase()
-                })
-                .font(Font.title3.weight(.bold))
-                .foregroundColor(Color(red: 0.325, green: 0.498, blue: 0.906))
-                .isHidden(isTryAgainHidden)
-            }
+                Text("Çeviriyi görmek için karta dokunun 🤓")
+                    .lineLimit(2, reservesSpace: true)
+                    .multilineTextAlignment(.center)
+                    .bold()
+                    .padding(5)
+                
+                Text("Telaffuzu duymak için karta dokunun ve basılı tutun 🤫")
+                    .lineLimit(2, reservesSpace: true)
+                    .multilineTextAlignment(.center)
+                    .bold()
+                    .padding(5)
+                
+            }.background(Color(red: 0.914, green: 0.973, blue: 0.976))
         }
         .onAppear(perform: {
             fetchDatabase()
@@ -110,7 +125,7 @@ struct InitView: View {
                 let translation = data.value(forKey: "translation") as! String
                 let pronunciation = data.value(forKey: "pronunciation") as! String
                 
-                WordViewModel.allWords.append(Word(word: word, translation: translation, pronunciation: pronunciation))
+                WordViewModel.allWords.append(Word(id: 0, word: word, translation: translation, pronunciation: pronunciation))
             }
             
             if WordViewModel.allWords.isEmpty {
@@ -138,7 +153,7 @@ struct InitView: View {
     }
     
     func generateRandomWords() {
-        while WordViewModel.words.count < 100 {
+        while WordViewModel.words.count < 50 {
             let randomNumber = Int.random(in: 0..<WordViewModel.allWords.count)
             
             WordViewModel.words.append(WordViewModel.allWords[randomNumber])
@@ -155,12 +170,11 @@ struct InitView: View {
                     if !snapshot!.documents.isEmpty {
                         
                         for i in snapshot!.documents {
-                            let word = Word(word: i.data()["Word"] as? String, translation: i.data()["Translation"] as? String, pronunciation: i.data()["Pronunciation"] as? String)
+                            let word = Word(id: 0, word: i.data()["Word"] as! String, translation: i.data()["Translation"] as! String , pronunciation: i.data()["Pronunciation"] as! String)
                             WordViewModel.allWords.append(word)
                         }
                         
                         if !WordViewModel.allWords.isEmpty {
-                            print(WordViewModel.allWords.count)
                             /// We got the list from Firebase, let's save it to the database
                             saveDatabase()
                         }else {

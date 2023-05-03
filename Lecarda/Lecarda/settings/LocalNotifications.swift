@@ -70,7 +70,6 @@ class LocalNotifications {
         userNotificationCenter.requestAuthorization(options: options) { granted, error in
             DispatchQueue.main.async {
                 if let error = error {
-                    print(error)
                     completion(false)
                     return
                 }

@@ -10,10 +10,8 @@ import FirebaseCore
 
 @main
 struct LecardaApp: App {
-    
     /// instantiate the PersistenceController
     let persistenceController = PersistenceController.shared
-    
     /// instantiate the NetworkMonitor
     @StateObject var networkMonitor = NetworkMonitor()
     

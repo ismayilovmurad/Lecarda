@@ -22,13 +22,13 @@ struct SettingsView: View {
             Color(red: 0.914, green: 0.973, blue: 0.976).ignoresSafeArea()
             
             List {
-                Text("Settings")
+                Text("Ayarlar")
                     .font(.largeTitle)
                     .padding(.bottom, 8)
                 
-                Section(header: Text("Notifications")) {
+                Section(header: Text("Bildirimler")) {
                     HStack {
-                        Toggle("Daily Reminder", isOn: $dailyReminderEnabled).onChange(of: dailyReminderEnabled, perform: {_ in configureNotification()})
+                        Toggle("Günlük hatırlatma", isOn: $dailyReminderEnabled).onChange(of: dailyReminderEnabled, perform: {_ in configureNotification()})
                             .toggleStyle(SwitchToggleStyle(tint: Color(red: 0.325, green: 0.498, blue: 0.906)))
                         DatePicker(
                             "",

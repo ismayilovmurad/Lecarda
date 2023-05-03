@@ -1,100 +1,117 @@
 //
-//  CardView.swift
+//  CardView2.swift
 //  Lecarda
 //
-//  Created by Murad Ismayilov on 04.04.23.
+//  Created by Murad Ismayilov on 28.04.23.
 //
 
 import SwiftUI
+import AVFoundation
 
 struct CardView: View {
-    var flashCard: FlashCard
+    @State
+    private var translation: CGSize = .zero
+    private var word: Word
+    private var onRemove: (_ user: Word) -> Void
+    private var threshold: CGFloat = 0.5
     
-    @State var revealed = false
-    @State var offset: CGSize = .zero
-    
-    typealias CardDrag = (_ card: FlashCard, _ direction: DiscardedDirection) -> Void
-    
-    let dragged: CardDrag
+    /// translation animation
+    @State private var revealed = false
     
     /// this attribute enables the state of a gesture to be stored and read during a gesture to influence the effects that gesture may have on the drawing of the view.
     @GestureState var isLongPressed = false
-        
-    init(_ card: FlashCard, onDrag dragged: @escaping CardDrag = {_,_  in }) {
-        flashCard = card
-        self.dragged = dragged
+    
+    let synthesizer = AVSpeechSynthesizer()
+    
+    init(word: Word, onRemove: @escaping (_ word: Word)  -> Void) {
+        self.word = word
+        self.onRemove = onRemove
     }
     
     var body: some View {
-        
-        let drag = DragGesture()
-            .onChanged { offset = $0.translation }
-            .onEnded {
-                if $0.translation.width < -100 {
-                    offset = .init(width: -1000, height: 0)
-                    dragged(flashCard, .left)
-                } else if $0.translation.width > 100 {
-                    offset = .init(width: 1000, height: 0)
-                    dragged(flashCard, .right)
-                } else {
-                    offset = .zero
-                }
-            }
-        
         let longPress = LongPressGesture()
             .updating($isLongPressed) { value, state, transition in
                 state = value
             }
-            .simultaneously(with: drag)
-        
-        return ZStack {
-            Rectangle()
-                .fill(Color(red: 0.325, green: 0.498, blue: 0.906))
-                .frame(width: 320, height: 210)
-                .cornerRadius(12)
-            VStack {
-                Spacer()
-                Text(flashCard.card.word!)
-                    .font(.largeTitle)
-                    .foregroundColor(.white)
-                Text(flashCard.card.pronunciation!)
-                    .font(.title2)
-                    .foregroundColor(.white)
-                if revealed {
-                    Text(flashCard.card.translation!)
-                        .font(.caption)
-                        .foregroundColor(.white)
-                        .padding(2)
-                }
-                Spacer()
-            }
-        }
-        .shadow(radius: 1)
-        .frame(width: 320, height: 210)
-        .animation(.spring(), value: offset)
-        .offset(offset)
-        .gesture(longPress)
-        .scaleEffect(isLongPressed ? 1.1 : 1)
-        .animation(
-            .easeInOut(duration: 0.3),
-            value: isLongPressed
-        )
-        .simultaneousGesture(TapGesture()
-            .onEnded {
-                withAnimation(.easeIn, {
-                    revealed = !revealed
-                })
+            .onEnded({_ in
+                let utterance = AVSpeechUtterance(string: word.word)
+                utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+                        utterance.rate = 0.52
+                        self.synthesizer.speak(utterance)
             })
+        
+        GeometryReader { geometry in
+            ZStack {
+                Rectangle()
+                    .fill(.blue)
+                    .cornerRadius(10)
+                    .frame(width: geometry.size.width - 20,
+                           height: geometry.size.height * 0.65)
+                
+                VStack {
+                    Text("\(word.word)")
+                        .lineLimit(2, reservesSpace: false)
+                        .multilineTextAlignment(.center)
+                        .font(.title)
+                        .bold()
+                        .foregroundColor(.white)
+                    Text("\(word.pronunciation)")
+                        .lineLimit(2, reservesSpace: false)
+                        .multilineTextAlignment(.center)
+                        .font(.title2)
+                        .bold()
+                        .foregroundColor(.white)
+                    
+                    if revealed {
+                        Text("\(word.translation)")
+                            .lineLimit(2, reservesSpace: false)
+                            .multilineTextAlignment(.center)
+                            .font(.title)
+                            .bold()
+                            .foregroundColor(.white)
+                            .padding(.top, 15)
+                    }
+                }
+            }
+            .padding(10)
+            .background(Color.white)
+            .cornerRadius(8)
+            .shadow(radius: 5)
+            .animation(.spring(), value: translation)
+            .offset(x: translation.width, y: 0)
+            .rotationEffect(
+                .degrees(
+                    Double(translation.width/geometry.size.width)*20),
+                anchor: .bottom)
+            .gesture(DragGesture()
+                .onChanged {
+                    translation = $0.translation
+                }.onEnded{
+                    if $0.percentage(in: geometry) > self.threshold {
+                        onRemove(word)
+                    } else {
+                        translation = .zero
+                    }
+                }
+            )
+            .simultaneousGesture(TapGesture()
+                .onEnded {
+                    withAnimation(.easeIn, {
+                        revealed = !revealed
+                    })
+                })
+            .simultaneousGesture(longPress)
+            .scaleEffect(isLongPressed ? 1.1 : 1)
+            .animation(
+                .easeInOut(duration: 0.3),
+                value: isLongPressed
+            )
+        }
     }
 }
 
-struct CardView_Previews: PreviewProvider {
-    static var previews: some View {
-        let card = FlashCard(
-            card: Word(
-                word: "Hello", translation: "Merhaba", pronunciation: "[ helo ]"
-            )
-        )
-        return CardView(card)
+extension DragGesture.Value {
+    func percentage(in geometry: GeometryProxy) -> Double {
+        abs(translation.width / geometry.size.width)
     }
 }
