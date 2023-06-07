@@ -27,6 +27,7 @@ struct LecardaApp: App {
             /// inject the NetworkMonitor into SwiftUI environment
                 .environmentObject(networkMonitor)
                 .preferredColorScheme(.light)
+                .environmentObject(UserAuth())
         }
     }
 }

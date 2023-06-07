@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreData
 import FirebaseFirestore
+import FirebaseAuth
 
 struct InitView: View {
     /// viewContext for Core Data
@@ -31,6 +32,8 @@ struct InitView: View {
     
     /// call the environment object
     @EnvironmentObject var networkMonitor: NetworkMonitor
+    
+    @EnvironmentObject var userAuth: UserAuth
     
     var body: some View {
         NavigationView {
