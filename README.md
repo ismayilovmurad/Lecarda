@@ -16,3 +16,13 @@ Learn English by swiping the cards.
 11. You have 5 seconds to choose the correct answer.
 12. Sign in with Apple to save your scores, see the score table and compete with other users.
 11. Get notifications daily by activating the daily reminder, it uses the User Notifications framework.
+
+![Simulator Screenshot - iPhone 14 Pro Max - 2023-06-07 at 07 27 08](https://github.com/ismayilovmurad/Lecarda/assets/42063887/cce910f3-0500-4ba5-b9be-932a301f3762)
+
+![Simulator Screenshot - iPhone 14 Pro Max - 2023-06-07 at 07 27 51](https://github.com/ismayilovmurad/Lecarda/assets/42063887/b3576ec1-3900-4afc-bc58-3e9d26c258a6)
+
+![Simulator Screenshot - iPhone 14 Pro Max - 2023-06-07 at 07 28 52](https://github.com/ismayilovmurad/Lecarda/assets/42063887/c208e9a3-ff56-4a6e-a1e6-79683fd8d0d5)
+
+![Simulator Screenshot - iPhone 14 Pro Max - 2023-06-07 at 07 32 09](https://github.com/ismayilovmurad/Lecarda/assets/42063887/8ea2aac1-7c8f-4ade-a13b-50d6cec4f70e)
+
+Preview: https://www.youtube.com/watch?v=KzyjJI0-7Ug
